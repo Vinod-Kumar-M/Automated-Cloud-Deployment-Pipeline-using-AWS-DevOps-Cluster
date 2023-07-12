@@ -1,0 +1,97 @@
+--> Test Python
+py -3 --version
+
+--> Create Virtual Environment where you install python packages to isolate from other packages in your system
+py -3 -m venv env
+
+-->Activate Environment
+
+-->windows disable running sch scripts, fix with POWERSHELL as admin
+Set-ExecutionPolicy RemoteSigned
+
+-->.\env\Scripts\activate
+
+-->Install Django
+python -m pip install django
+-->Test Django
+python -m django --version
+
+-->start a new project in the directory
+django-admin startproject portfolio .
+
+-->check project
+python manage.py runserver
+
+-->create an app
+python manage.py startapp vinod
+
+--> Add app to settings
+
+--> Install pillow which is a python Imaging Library
+python -m pip install Pillow
+
+
+---------------------------------------------------------------------------------
+
+MODELS AND ADMIN INTERFACE:
+---------------------------
+
+--> Create MODELS
+python manage.py makemigrations
+python manage.py migrate
+
+--> Crate SuperUser
+python manage.py createsuperuser
+
+-->Add string methods
+
+def __str__(self):
+        return str(self.id)
+
+
+--> Configure static files path and urls
+
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root/')
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+--> Tell Django where to find the static files while on the browser
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+
+
+
+VIEWS AND TEMPLATES:
+-------------------
+
+--> write basic view, add index.html in app template folder and Configure
+app url
+
+def index(request):
+    return render(request, 'index.html')
+
+--> Add assests folder to static_root folder
+frontend
+
+
+-->load static files in html file
+
+--> write views
+
+--> Add data in Admin Interface
+
+--> Load content from views to templates
+
+--> {% static 'assets/css/styles.css' %}
+--> {{ model.field }}
+
+
+
+
